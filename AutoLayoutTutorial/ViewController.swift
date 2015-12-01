@@ -233,6 +233,137 @@ class ViewController: UIViewController {
             attribute: .Bottom,
             multiplier: 1,
             constant: -textFieldSpacing))
+
+        // brand container
+        let branding = UIView()
+        branding.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(branding)
+        branding.backgroundColor = UIColor.darkGrayColor()
+
+        // bottom
+        view.addConstraint(NSLayoutConstraint(
+            item: branding,
+            attribute: .Bottom,
+            relatedBy: .Equal,
+            toItem: textFields,
+            attribute: .Top,
+            multiplier: 1,
+            constant: 0))
+        // top
+        view.addConstraint(NSLayoutConstraint(
+            item: branding,
+            attribute: .Top,
+            relatedBy: .Equal,
+            toItem: view,
+            attribute: .Top,
+            multiplier: 1,
+            constant: 0))
+        // leading
+        view.addConstraint(NSLayoutConstraint(
+            item: branding,
+            attribute: .Leading,
+            relatedBy: .Equal,
+            toItem: view,
+            attribute: .Leading,
+            multiplier: 1,
+            constant: 0))
+        // trailing
+        view.addConstraint(NSLayoutConstraint(
+            item: branding,
+            attribute: .Trailing,
+            relatedBy: .Equal,
+            toItem: view,
+            attribute: .Trailing,
+            multiplier: 1,
+            constant: 0))
+
+        // image
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        branding.addSubview(imageView)
+        let url = "https://goo.gl/PcxyrU"
+        imageView.image = UIImage(data: NSData(contentsOfURL: NSURL(string: url)!)!)
+        imageView.contentMode = .ScaleAspectFill
+        imageView.clipsToBounds = true
+
+        // bottom
+        branding.addConstraint(NSLayoutConstraint(
+            item: imageView,
+            attribute: .Bottom,
+            relatedBy: .Equal,
+            toItem: branding,
+            attribute: .Bottom,
+            multiplier: 1,
+            constant: -4))
+        // top
+        branding.addConstraint(NSLayoutConstraint(
+            item: imageView,
+            attribute: .Top,
+            relatedBy: .Equal,
+            toItem: branding,
+            attribute: .Top,
+            multiplier: 1,
+            constant: 0))
+        // leading
+        branding.addConstraint(NSLayoutConstraint(
+            item: imageView,
+            attribute: .Leading,
+            relatedBy: .Equal,
+            toItem: branding,
+            attribute: .Leading,
+            multiplier: 1,
+            constant: 0))
+        // trailing
+        branding.addConstraint(NSLayoutConstraint(
+            item: imageView,
+            attribute: .Trailing,
+            relatedBy: .Equal,
+            toItem: branding,
+            attribute: .Trailing,
+            multiplier: 1,
+            constant: 0))
+
+        // tagline
+        let tagline = UILabel()
+        tagline.translatesAutoresizingMaskIntoConstraints = false
+        branding.addSubview(tagline)
+        tagline.text = "Shopping on your phone will never be the same."
+        tagline.textColor = UIColor(white: 0.2, alpha: 1)
+        tagline.textAlignment = .Center
+        tagline.numberOfLines = 0
+        tagline.lineBreakMode = .ByWordWrapping
+        tagline.shadowColor = UIColor(white: 1.0, alpha: 0.6)
+        tagline.shadowOffset = CGSize(width: 1, height: 1)
+
+        let taglineMargin: CGFloat = 80
+
+        // bottom
+        branding.addConstraint(NSLayoutConstraint(
+            item: tagline,
+            attribute: .Bottom,
+            relatedBy: .Equal,
+            toItem: branding,
+            attribute: .Bottom,
+            multiplier: 1,
+            constant: -15))
+        // leading
+        branding.addConstraint(NSLayoutConstraint(
+            item: tagline,
+            attribute: .Leading,
+            relatedBy: .Equal,
+            toItem: branding,
+            attribute: .Leading,
+            multiplier: 1,
+            constant: taglineMargin))
+        // trailing
+        branding.addConstraint(NSLayoutConstraint(
+            item: tagline,
+            attribute: .Trailing,
+            relatedBy: .Equal,
+            toItem: branding,
+            attribute: .Trailing,
+            multiplier: 1,
+            constant: -taglineMargin))
     }
 
 }
