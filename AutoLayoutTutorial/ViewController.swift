@@ -281,7 +281,7 @@ class ViewController: UIViewController {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         branding.addSubview(imageView)
-        let url = "https://static.pexels.com/photos/5299/black-and-white-apple-iphone-smartphone-large.jpg"
+        let url = "https://goo.gl/PcxyrU"
         imageView.image = UIImage(data: NSData(contentsOfURL: NSURL(string: url)!)!)
         imageView.contentMode = .ScaleAspectFill
         imageView.clipsToBounds = true
@@ -322,6 +322,48 @@ class ViewController: UIViewController {
             attribute: .Trailing,
             multiplier: 1,
             constant: 0))
+
+        // tagline
+        let tagline = UILabel()
+        tagline.translatesAutoresizingMaskIntoConstraints = false
+        branding.addSubview(tagline)
+        tagline.text = "Shopping on your phone will never be the same."
+        tagline.textColor = UIColor(white: 0.2, alpha: 1)
+        tagline.textAlignment = .Center
+        tagline.numberOfLines = 0
+        tagline.lineBreakMode = .ByWordWrapping
+        tagline.shadowColor = UIColor(white: 1.0, alpha: 0.6)
+        tagline.shadowOffset = CGSize(width: 1, height: 1)
+
+        let taglineMargin: CGFloat = 80
+
+        // bottom
+        branding.addConstraint(NSLayoutConstraint(
+            item: tagline,
+            attribute: .Bottom,
+            relatedBy: .Equal,
+            toItem: branding,
+            attribute: .Bottom,
+            multiplier: 1,
+            constant: -15))
+        // leading
+        branding.addConstraint(NSLayoutConstraint(
+            item: tagline,
+            attribute: .Leading,
+            relatedBy: .Equal,
+            toItem: branding,
+            attribute: .Leading,
+            multiplier: 1,
+            constant: taglineMargin))
+        // trailing
+        branding.addConstraint(NSLayoutConstraint(
+            item: tagline,
+            attribute: .Trailing,
+            relatedBy: .Equal,
+            toItem: branding,
+            attribute: .Trailing,
+            multiplier: 1,
+            constant: -taglineMargin))
     }
 
 }
