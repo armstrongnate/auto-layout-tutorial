@@ -5,6 +5,7 @@
 //  Created by Nate Armstrong on 11/30/15.
 //  Copyright © 2015 Nate Armstrong. All rights reserved.
 //
+// http://pttrns.com/applications/303
 
 import UIKit
 
